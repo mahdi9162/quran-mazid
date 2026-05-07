@@ -1,2 +1,28 @@
 @import 'tailwindcss';
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: dark --default;
+}
+
+@plugin "daisyui/theme" {
+  name: 'dark';
+  default: false;
+  color-scheme: dark;
+
+  /* 3 primary colors */
+  --color-primary: #428038;
+  --color-secondary: #f5f5f5;
+  --color-accent: #1d1d1d;
+}
+
+@plugin "daisyui/theme" {
+  name: 'light';
+  default: false;
+  color-scheme: light;
+
+  /* 3 primary colors */
+  --color-primary: #428038;
+  --color-secondary: #353734;
+  --color-accent: #8b5cf6;
+}
+
+@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));

@@ -24,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cinzel.variable} h-full antialiased`}>
-      <body className="min-h-full bg-black text-white font-sans">{children}</body>
+    <html lang="en" data-theme="dark" className={`${inter.variable} ${cinzel.variable} h-full antialiased`}>
+      <body className="min-h-full font-sans">{children}</body>
     </html>
   );
 }

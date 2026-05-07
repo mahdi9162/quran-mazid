@@ -1,7 +1,9 @@
+import Navbar from '@/components/shared/Navbar';
+
 export default function Home() {
   return (
     <>
-      <div className="text-primary">Mahdi Hasan</div>
+      <Navbar />
     </>
   );
 }
