@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Cinzel_Decorative } from 'next/font/google';
+import { Inter, Cinzel, Cinzel_Decorative } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -7,10 +7,16 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const cinzel = Cinzel_Decorative({
+export const cinzel = Cinzel({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
-  variable: '--font-cinzel',
+  weight: ['700'],
+  variable: '--font-cinzel-decorative',
+});
+
+export const cinzelDecorative = Cinzel_Decorative({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-cinzel-decorative',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" className={`${inter.variable} ${cinzel.variable} h-full antialiased`}>
+    <html lang="en" data-theme="dark" className={`${inter.variable}  h-full antialiased`}>
       <body className="min-h-full font-sans">{children}</body>
     </html>
   );

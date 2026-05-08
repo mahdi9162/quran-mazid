@@ -10,8 +10,8 @@
 
   /* 3 primary colors */
   --color-primary: #428038;
-  --color-secondary: #f5f5f5;
-  --color-accent: #1d1d1d;
+  --color-secondary: #131712;
+  --color-accent: #787d7a;
 }
 
 @plugin "daisyui/theme" {
@@ -26,3 +26,16 @@
 }
 
 @custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
+
+:root {
+  --hero-bottom-shape-1: rgba(255, 255, 255, 0.12);
+}
+
+/* swiper for hero */
+.swiper-slide {
+  opacity: 0 !important;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+}

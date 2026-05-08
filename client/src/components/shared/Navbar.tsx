@@ -24,28 +24,30 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import Container from './Container';
-import SideLight from './SideLight';
+import SideLight from '../Svg/SideLight';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-50 w-full bg-[#131313] backdrop-blur-xl">
-        <SideLight className="pointer-events-none absolute top-0 left-30 hidden h-50 w-16 text-white opacity-80 md:block xl:left-50" />
-        <SideLight className="pointer-events-none absolute top-0 right-30 hidden h-50 w-16 -scale-x-100 text-white opacity-80 md:block xl:right-50" />
+      <header className="fixed top-0 left-0 z-50 w-full backdrop-blur-xl lg:bg-[#131313]">
+        {/* Lights */}
+        <SideLight className="pointer-events-none absolute top-0 left-30 hidden h-50 w-16 text-white opacity-80 lg:block xl:left-50" />
+
+        <SideLight className="pointer-events-none absolute top-0 right-30 hidden h-50 w-16 -scale-x-100 text-white opacity-80 lg:block xl:right-50" />
 
         <Container>
-          <div className="flex h-21.5 items-center justify-between">
+          <div className="flex h-19 items-center justify-between">
             <Link href="/" className="hidden items-center gap-3 md:flex">
-              <Image src="/logo.svg" alt="Quran Mazid" width={42} height={42} className="rounded-xl bg-primary" />
+              <Image src="/logo.svg" alt="Quran Mazid" width={40} height={40} className="rounded-lg bg-primary w-9" />
               <div>
                 <h1 className="text-[22px] font-bold leading-tight text-[#d7d7d7]">Quran Mazid</h1>
                 <p className="text-[11px] leading-tight text-[#707070]">Read, Study, and Learn The Quran</p>
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-10 md:flex">
+            <nav className="hidden items-center gap-10 lg:flex">
               <Link href="/" className="text-[15px] text-[#8b8b8b] transition hover:text-white">
                 Home
               </Link>
@@ -101,7 +103,7 @@ const Navbar = () => {
               </div>
             </nav>
 
-            <div className="hidden items-center gap-4 md:flex">
+            <div className="hidden items-center gap-4 lg:flex">
               <button className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-[#081109] text-primary">
                 <Moon size={18} fill="currentColor" />
               </button>
@@ -113,7 +115,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className="ml-auto flex gap-3 md:hidden">
+            <div className="ml-auto flex gap-4 lg:hidden">
               <button className="flex h-9 w-9 items-center justify-center rounded-full bg-[#42803212] text-primary">
                 <Moon size={16} fill="currentColor" />
               </button>
@@ -123,13 +125,19 @@ const Navbar = () => {
               >
                 <Settings size={16} />
               </button>
+              <button className="flex cursor-pointer items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#4b9241]">
+                Support Us <Heart size={16} fill="currentColor" />
+              </button>
             </div>
           </div>
         </Container>
       </header>
 
-      <div
-        className={`fixed top-0 z-999 h-screen w-full bg-[#080808] px-5 py-6 transition-all duration-300 md:hidden ${isOpen ? 'right-0' : '-right-full'}`}
+      {/* drawer nav mobile and tablet */}
+      <nav
+        className={`fixed top-0 z-999 h-screen w-full md:w-[50%] bg-[#121212] px-5 py-6 transition-all duration-300 lg:hidden ${
+          isOpen ? 'right-0' : '-right-full'
+        }`}
       >
         <div className="flex items-start justify-between">
           <Link href="/" className="flex items-center gap-3">
@@ -199,9 +207,9 @@ const Navbar = () => {
             Our Projects
           </Link>
         </div>
-      </div>
+      </nav>
 
-      {isOpen && <div onClick={() => setIsOpen(false)} className="fixed inset-0 z-998 bg-black/60 backdrop-blur-sm md:hidden" />}
+      {isOpen && <div onClick={() => setIsOpen(false)} className="fixed inset-0 z-998 bg-black/60 backdrop-blur-sm lg:hidden" />}
     </>
   );
 };
